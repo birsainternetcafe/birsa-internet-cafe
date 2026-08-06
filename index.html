@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birsa Internet Cafe</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <img src="logo.jpg" class="logo">
+  <h1>Birsa Internet Cafe</h1>
+  <p>Owner: Ranjeet Kumar | 📞 7979812374</p>
+</header>
+
+<section class="hero">
+  <h2>All Online Services Available</h2>
+  <a href="https://wa.me/917979812374" class="btn">Contact on WhatsApp</a>
+</section>
+
+<section>
+  <h2>Services & Pricing</h2>
+  <table>
+    <tr><th>Service</th><th>Price</th></tr>
+    <tr><td>Online Form</td><td>₹70 – ₹200<br><small>Depending on form</small></td></tr>
+    <tr><td>Printing</td><td>₹10 (1–10 pages)<br>₹5 (11–50 pages)<br>₹3 (50+ pages)</td></tr>
+    <tr><td>Lamination</td><td>₹25</td></tr>
+    <tr><td>Scan</td><td>₹10</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>Book & Pay Service</h2>
+  <form onsubmit="placeOrder(); return false;">
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="tel" id="phone" placeholder="Mobile Number" required>
+
+    <select id="service" onchange="updateAmount()">
+      <option>Online Form</option>
+      <option>Printing</option>
+      <option>Scanning</option>
+      <option>Lamination</option>
+    </select>
+
+    <input type="number" id="amount" placeholder="Amount" readonly>
+    <textarea id="message" placeholder="Enter details"></textarea>
+
+    <button type="submit">Place Order</button>
+  </form>
+</section>
+
+<section class="payment">
+  <h3>Scan & Pay</h3>
+  <img src="qr.jpg" class="qr">
+  <p><strong>UPI ID:</strong> 7979812374@ptsbi</p>
+</section>
+
+<footer>
+  <p>© 2026 Birsa Internet Cafe | Bokaro Steel City</p>
+</footer>
+
+<a href="https://wa.me/917979812374" class="whatsapp">💬</a>
+
+<script src="script.js"></script>
+</body>
+</html>
