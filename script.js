@@ -7,18 +7,31 @@ function updateAmount() {
   if (service === "Lamination") amountField.value = 25;
 }
 
-function placeOrder() {
+async function placeOrder() {
+
   let name = document.getElementById("name").value;
   let phone = document.getElementById("phone").value;
   let service = document.getElementById("service").value;
   let amount = document.getElementById("amount").value;
-  let message = document.getElementById("message").value;
 
-  let text = "New Order%0aName: " + name + "%0aPhone: " + phone + "%0aService: " + service + "%0aAmount: ₹" + amount + "%0aDetails: " + message;
+  if (!name || !phone || !service) {
+    alert("Please fill all fields");
+    return;
+  }
 
-  let whatsappURL = "https://wa.me/917979812374?text=" + text;
-  let paymentURL = "upi://pay?pa=7979812374@ptsbi&pn=Ranjeet%20Kumar&am=" + amount + "&cu=INR";
+  // 🔥 SAVE TO FIREBASE
+  await db.collection("orders").add({
+    name: name,
+    phone: phone,
+    service: service,
+    amount: amount,
+    time: new Date()
+  });
 
-  window.open(whatsappURL, "_blank");
-  setTimeout(() => { window.open(paymentURL, "_blank"); }, 2000);
+  alert("Order Saved Successfully!");
+
+  // WhatsApp message
+  let msg = `New Order\nName: ${name}\nPhone: ${phone}\nService: ${service}\nAmount: ₹${amount}`;
+  window.open("https://wa.me/917979812374?text=" + encodeURIComponent(msg));
+
 }
