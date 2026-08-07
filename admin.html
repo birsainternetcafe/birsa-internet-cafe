@@ -33,7 +33,7 @@ db.collection("orders").orderBy("time","desc")
 
   snapshot.forEach(doc => {
     let o = doc.data();
-    list.innerHTML += `<li>${o.name} - ₹${o.amount} (${o.service})</li>`;
+    li.textContent = order.name + " - ₹" + order.amount + " (" + order.service + ")";
   });
 
 });
